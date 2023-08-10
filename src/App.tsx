@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Plot, { Figure, PlotParams } from "react-plotly.js";
+import Plot, { PlotParams } from "react-plotly.js";
 
 const cloneJSON = (input: any) => JSON.parse(JSON.stringify(input));
 
@@ -22,24 +22,13 @@ function App() {
     setPlotParams((prevState) => cloneJSON(prevState));
   };
 
-  const onInitialized = (figure: Readonly<Figure>) =>
-    console.log("initialized with:", figure);
-
-  const onUpdate = (figure: Readonly<Figure>) =>
-    console.log("updated as: ", figure);
-
   return (
     <div className="App">
       <div style={{ padding: 10 }}>
         <button onClick={updateData}>Update Data</button>
       </div>
 
-      <Plot
-        data={plotParams.data}
-        layout={plotParams.layout}
-        onInitialized={onInitialized}
-        onUpdate={onUpdate}
-      />
+      <Plot data={plotParams.data} layout={plotParams.layout} />
     </div>
   );
 }
