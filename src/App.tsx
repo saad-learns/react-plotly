@@ -2,8 +2,6 @@ import React from "react";
 import "./App.css";
 import Plot, { PlotParams } from "react-plotly.js";
 
-const cloneJSON = (input: any) => JSON.parse(JSON.stringify(input));
-
 function App() {
   const [plotUpdated, setPlotUpdated] = React.useState<number>(0);
   const [plotParams, setPlotParams] = React.useState<PlotParams>({
@@ -22,7 +20,7 @@ function App() {
   const updatePlot = () => {
     setPlotParams((prevState) => ({
       data: prevState.data,
-      layout: prevState.layout,
+      layout: {},
     }));
   };
 
