@@ -19,12 +19,7 @@ function App() {
   });
 
   const updateData = () => {
-    setPlotParams((prevState) =>
-      cloneJSON({
-        data: prevState.data,
-        layout: prevState.layout,
-      }),
-    );
+    setPlotParams((prevState) => cloneJSON(prevState));
   };
 
   const onInitialized = (figure: Readonly<Figure>) =>
