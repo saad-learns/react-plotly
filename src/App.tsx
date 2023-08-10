@@ -20,7 +20,7 @@ function App() {
 
   const updateData = () => {
     setPlotParams(() => ({
-      data: JSON.parse(JSON.stringify(sampleData)),
+      data: sampleData,
       layout: {},
     }));
   };
