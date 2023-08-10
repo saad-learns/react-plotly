@@ -1,28 +1,30 @@
 import React from "react";
 import "./App.css";
 import Plot, { Figure, PlotParams } from "react-plotly.js";
-import { Data } from "plotly.js";
+
+const cloneJSON = (input: any) => JSON.parse(JSON.stringify(input));
 
 function App() {
-  const sampleData: Data[] = [
-    {
-      x: [-3, -2, -1, 0, 1, 2, 3],
-      y: [
-        -0.1411200080598672, -0.9092974268256817, -0.8414709848078965, 0,
-        0.8414709848078965, 0.9092974268256817, 0.1411200080598672,
-      ],
-    },
-  ];
   const [plotParams, setPlotParams] = React.useState<PlotParams>({
-    data: sampleData,
+    data: [
+      {
+        x: [-3, -2, -1, 0, 1, 2, 3],
+        y: [
+          -0.1411200080598672, -0.9092974268256817, -0.8414709848078965, 0,
+          0.8414709848078965, 0.9092974268256817, 0.1411200080598672,
+        ],
+      },
+    ],
     layout: {},
   });
 
   const updateData = () => {
-    setPlotParams(() => ({
-      data: sampleData,
-      layout: {},
-    }));
+    setPlotParams((prevState) =>
+      cloneJSON({
+        data: prevState.data,
+        layout: prevState.layout,
+      }),
+    );
   };
 
   const onInitialized = (figure: Readonly<Figure>) =>
