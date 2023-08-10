@@ -20,7 +20,10 @@ function App() {
   });
 
   const updatePlot = () => {
-    setPlotParams((prevState) => cloneJSON(prevState));
+    setPlotParams((prevState) => ({
+      data: prevState.data,
+      layout: prevState.layout,
+    }));
   };
 
   return (
@@ -32,12 +35,10 @@ function App() {
       <Plot
         data={plotParams.data}
         layout={plotParams.layout}
-        onUpdate={() => setPlotUpdated(prevState => prevState+1)}
+        onUpdate={() => setPlotUpdated((prevState) => prevState + 1)}
       />
 
-      <div>
-        Plot updated: {plotUpdated}
-      </div>
+      <div>Plot updated: {plotUpdated}</div>
     </div>
   );
 }
