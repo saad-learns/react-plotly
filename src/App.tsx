@@ -19,14 +19,14 @@ function App() {
     layout: {},
   });
 
-  const updateData = () => {
+  const updatePlot = () => {
     setPlotParams((prevState) => cloneJSON(prevState));
   };
 
   return (
     <div className="App">
       <div style={{ padding: 10 }}>
-        <button onClick={updateData}>Update Data</button>
+        <button onClick={updatePlot}>Update Plot</button>
       </div>
 
       <Plot
