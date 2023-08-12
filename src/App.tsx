@@ -19,7 +19,7 @@ function App() {
 
   const updatePlot = () => {
     setPlotParams((prevState) => ({
-      data: prevState.data,
+      data: [prevState.data[0]],
       layout: {},
     }));
   };
