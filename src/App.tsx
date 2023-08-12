@@ -1,6 +1,7 @@
 import React from "react";
 import "./App.css";
 import Plot, { PlotParams } from "react-plotly.js";
+import { PlotData } from "plotly.js";
 
 function App() {
   const [plotUpdated, setPlotUpdated] = React.useState<number>(0);
@@ -19,7 +20,12 @@ function App() {
 
   const updatePlot = () => {
     setPlotParams((prevState) => ({
-      data: [prevState.data[0]],
+      data: [
+        {
+          x: (prevState.data[0] as PlotData).x,
+          y: (prevState.data[0] as PlotData).y,
+        },
+      ],
       layout: {},
     }));
   };
