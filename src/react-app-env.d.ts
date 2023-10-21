@@ -1,8 +1,9 @@
 /// <reference types="react-scripts" />
-import { StateUpdateLogMessage } from "./Logger";
+
+import { Logger } from "./Logger";
 
 declare global {
   interface Window {
-    logs: StateUpdateLogMessage<Data>[];
+    logger: Logger;
   }
 }

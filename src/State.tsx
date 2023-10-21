@@ -1,12 +1,13 @@
 import "./App.css";
 import React from "react";
+import { Logger } from "./Logger";
 
 interface Data {
   x: number;
   y: number;
 }
 
-window.logs = [];
+window.logger = new Logger<Data>();
 
 function State() {
   const [data, setData] = React.useState<Data>({ x: 0, y: 0 });
@@ -18,7 +19,7 @@ function State() {
         y: prevState.y + 1,
       };
 
-      window.logs.push({
+      window.logger.log({
         message: "increment x,y by 1",
         prevState,
         updatedState,
