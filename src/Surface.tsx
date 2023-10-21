@@ -1,5 +1,4 @@
 import Plot from "react-plotly.js";
-import * as d3 from "d3";
 
 const Surface = () => {
   return (

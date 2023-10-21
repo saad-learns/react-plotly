@@ -3,7 +3,7 @@ import "./App.css";
 import Plot, { PlotParams } from "react-plotly.js";
 import { PlotData } from "plotly.js";
 
-function App() {
+function TwoDPlot() {
   const [plotUpdated, setPlotUpdated] = React.useState<number>(0);
   const [plotParams, setPlotParams] = React.useState<PlotParams>({
     data: [
@@ -47,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default TwoDPlot;
